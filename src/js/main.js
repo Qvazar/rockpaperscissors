@@ -1,5 +1,12 @@
 require('../css/main.scss');
 
-import print from './module';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './components/App';
 
-print('it works well!');
+const reactRoot = document.getElementsByTagName("main")[0];
+
+ReactDOM.render(
+	<App />,
+	reactRoot
+);

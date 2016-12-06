@@ -16,7 +16,7 @@ module.exports = {
 		root: [
 			path.resolve('./node_modules')
 		],
-		extensions: ['', '.js']
+		extensions: ['', '.js', '.jsx']
 	},
 	resolveLoader: {
 		root: path.join(process.cwd(), 'node_modules')
@@ -37,7 +37,7 @@ module.exports = {
 	],
 	module: {
 		preLoaders: [{
-			test: /\.js$/,
+			test: /\.jsx?$/,
 			loader: 'eslint',
 			exclude: [/node_modules/]
 		}],
@@ -48,7 +48,7 @@ module.exports = {
 			test: /\.scss$/,
 			loader: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader')
 		},{
-			test: /\.js$/,
+			test: /\.jsx?$/,
 			exclude: [/node_modules/],
 			loader: 'babel'
 		}]
