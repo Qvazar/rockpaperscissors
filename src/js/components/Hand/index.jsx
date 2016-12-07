@@ -1,7 +1,22 @@
 import React from 'react';
+import paperImage from 'file!../../../images/paper.png';
+import rockImage from 'file!../../../images/rock.png';
+import scissorsImage from 'file!../../../images/scissors.png';
 
-const Hand = ({handModel}) => (
+const images = {
+	paper: paperImage,
+	rock: rockImage,
+	scissors: scissorsImage
+};
+
+const Hand = ({hand}) => (
 	<div className="hand">
-		<div className="hand-image" src={`images/${handModel.name}.png`} alt={handModel.name} />
+		<img className="hand-image" src={images[hand.name]} alt={hand.name} />
 	</div>
 );
+
+Hand.propTypes = {
+	hand: React.PropTypes.object
+}
+
+export default Hand;

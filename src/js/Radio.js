@@ -3,6 +3,7 @@ import { v4 as uuid } from 'uuid';
 class Radio {
 	constructor() {
 		this._listeners = {};
+		this._vals = {};
 	}
 
 	listen(cb) {
@@ -22,7 +23,9 @@ class Radio {
 
 	send(msg) {
 		const listeners = this._listeners;
-		Object.keys(listeners).forEach(cbId => listeners[cbId](msg));
+		for (var lId in listeners) {
+			listeners[lId](msg);
+		}
 	}
 
 	get listenerCount() {
@@ -31,6 +34,18 @@ class Radio {
 
 	clear() {
 		this._listeners = {};
+	}
+
+	set(key, valFn) {
+		if (typeof valFn !== "function") {
+			throw new Error("valFn is not a function");
+		}
+
+		this._vals[key] = valFn;
+	}
+
+	get(key) {
+		return this._vals[key]();
 	}
 }
 
