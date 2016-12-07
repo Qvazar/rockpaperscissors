@@ -2,12 +2,15 @@ require('../css/main.scss');
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Radio from './Radio';
 import App from './components/App';
 import Hand from './models/Hand';
 
-const SCISSORS = "Scissors";
-const PAPER = "Paper";
-const ROCK = "Rock";
+const radio = new Radio();
+
+const SCISSORS = "scissors";
+const PAPER = "paper";
+const ROCK = "rock";
 
 const hands = [
 	new Hand({name: SCISSORS, beats: [PAPER] }),
@@ -18,6 +21,6 @@ const hands = [
 const reactRoot = document.getElementsByTagName("main")[0];
 
 ReactDOM.render(
-	<App hands={hands} />,
+	<App hands={hands} radio={radio} />,
 	reactRoot
 );
