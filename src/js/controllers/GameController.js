@@ -90,14 +90,27 @@ class GameController {
 
 	get winner() {
 		if (this.state === POSTGAME) {
-			const p1 = this.players[0];
-			const p2 = this.players[1];
+			let winner = null;
 
-			if (p1.hand.beats(p2.hand)) {
-				return "Player 1";
-			} else if (p2.hand.beats(p1.hand)) {
-				return "Player 2";
-			}
+			this.players.forEach(p1 => {
+				this.players.forEach(p2 => {
+					if (p1 !== p2) {
+						if (p1.hand.beats(p2.hand)) {
+							winner = p1;
+						}
+					}
+				});
+			});
+
+			return winner;
+			// const p1 = this.players[0];
+			// const p2 = this.players[1];
+            //
+			// if (p1.hand.beats(p2.hand)) {
+			// 	return "Player 1";
+			// } else if (p2.hand.beats(p1.hand)) {
+			// 	return "Player 2";
+			// }
 		}
 
 		return null;

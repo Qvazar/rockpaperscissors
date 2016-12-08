@@ -1,3 +1,5 @@
+require("./hand.scss");
+
 import React from 'react';
 import paperImage from 'file!../../../images/paper.png';
 import rockImage from 'file!../../../images/rock.png';

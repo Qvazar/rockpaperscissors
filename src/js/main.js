@@ -19,7 +19,7 @@ const hands = [
 	new Hand({name: ROCK, beats: [SCISSORS]})
 ];
 
-const roundTime = 5000;
+const roundTime = 10000;
 
 const gameCtrl = new GameController({radio, hands, roundTime});
 
@@ -28,7 +28,8 @@ const reactRoot = document.getElementsByTagName("main")[0];
 ReactDOM.render(
 	<App
 		radio={radio}
-		onStartGame={gameCtrl.start.bind(gameCtrl)}
-		onSelectHand={gameCtrl.selectHand.bind(gameCtrl)}/>,
+		onStartGame={gameCtrl.start}
+		onSelectHand={gameCtrl.selectHand}
+		onReset={gameCtrl.reset} />,
 	reactRoot
 );

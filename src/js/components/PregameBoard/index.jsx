@@ -1,3 +1,5 @@
+require("./pregameBoard.scss");
+
 import React from 'react';
 
 class PregameBoard extends React.Component {
@@ -12,9 +14,8 @@ class PregameBoard extends React.Component {
 	}
 
 	onPlayerTypeChange(e) {
-		this.setState({
-			playerType: e.currentTarget.value
-		});
+		const playerType = e.currentTarget.value;
+		this.setState({playerType});
 	}
 
 	onSubmit(e) {
@@ -24,16 +25,19 @@ class PregameBoard extends React.Component {
 	}
 
 	render() {
+		const humanSelected = this.state.playerType === "human";
+		const aiSelected = this.state.playerType === "ai";
+
 		return (
-			<div className="pregame">
+			<div className="pregameBoard">
 				<form onSubmit={this.onSubmit}>
 					<h1>You are?</h1>
 					<label>
-						<input type="radio" name="playerType" value="human" checked={this.state.playerType === "human"} onChange={this.onPlayerTypeChange} />
+						<input type="radio" name="playerType" value="human" checked={humanSelected} onChange={this.onPlayerTypeChange} />
 						<span>Human</span>
 					</label>
 					<label>
-						<input type="radio" name="playerType" value="ai" checked={this.state.playerType === "ai"} onChange={this.onPlayerTypeChange} />
+						<input type="radio" name="playerType" value="ai" checked={aiSelected} onChange={this.onPlayerTypeChange} />
 						<span>AI</span>
 					</label>
 					<button type="submit" className="startGameButton">Start!</button>

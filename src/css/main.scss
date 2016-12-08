@@ -1,17 +1,27 @@
 body {
-	background-color: green;
+  background-color: black;
+  color: white;
 
-	h1 {
-		color: white;
-	}
+  &, input, button {
+	font-family: 'Gloria Hallelujah', cursive;
+  }
 
-  text-align: center;
+  input, button {
+	background-color: transparent;
+	border: transparent;
+	color: white;
+  }
+
+  button {
+	cursor: pointer;
+  }
+
+  h1 {
+	color: white;
+  }
 }
 
-.selectableHand {
-  display:inline-block;
-}
-
-.selectableHand.selected {
-  border:2px solid blue;
+main {
+  width: 40em;
+  margin: 10em auto;
 }

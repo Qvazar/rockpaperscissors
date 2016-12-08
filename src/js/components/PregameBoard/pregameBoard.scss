@@ -1,0 +1,61 @@
+.pregameBoard {
+  width: 100%;
+
+  h1 {
+	width: 100%;
+	text-align: center;
+  }
+
+  label {
+	display: block;
+	font-size: 2em;
+	width: 6em;
+	height: 1.2em;
+	line-height: 1.2em;
+	margin: 0 auto;
+	text-align: center;
+	position: relative;
+	cursor: pointer;
+
+	span {
+	  display: block;
+	  width: 100%;
+	}
+
+	input {
+	  position: absolute;
+	  opacity: 0;
+
+	  &:checked + span::before {
+		content: "";
+		width: 0;
+		height: 0;
+		display: block;
+		border: 0.4em solid transparent;
+		border-left: 0.4em solid white;
+		position: absolute;
+		top: 0.2em;
+		left: -1em;
+	  }
+	}
+  }
+
+  button[type="submit"] {
+	display: block;
+	width: 6em;
+	margin: 2em auto;
+	padding: 0;
+	text-align: center;
+	font-size: 2em;
+  }
+
+  label, button {
+	border: 2px dashed transparent;
+	will-change: border;
+	transition: border 500ms;
+
+	&:hover {
+	  border: 2px #666 dashed;
+	}
+  }
+}
