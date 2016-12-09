@@ -13,7 +13,7 @@ const PostgameBoard = ({radio, onReset}) => {
 	return (
 		<div className="postgameBoard">
 			<div className="scoreboard">
-				<h2>{wasADraw ? "Draw!" : `Player ${winnerNo} won!`}</h2>
+				<h2>{wasADraw ? "It was a draw!" : `You ${winnerNo === 1 ? "won" : "lose"}!`}</h2>
 				{players.map(p => (
 					<div className={`player ${p === winner ? "winner" : ""}`}>
 						<Hand hand={p.hand}/>
