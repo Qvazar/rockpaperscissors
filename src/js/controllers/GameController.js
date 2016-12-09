@@ -103,14 +103,6 @@ class GameController {
 			});
 
 			return winner;
-			// const p1 = this.players[0];
-			// const p2 = this.players[1];
-            //
-			// if (p1.hand.beats(p2.hand)) {
-			// 	return "Player 1";
-			// } else if (p2.hand.beats(p1.hand)) {
-			// 	return "Player 2";
-			// }
 		}
 
 		return null;

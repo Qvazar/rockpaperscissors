@@ -1,10 +1,13 @@
 
 class AiPlayer {
 	constructor({radio, hands}) {
-		this._possibleHands = hands;
-		this._currentHand = hands[Math.floor(hands.length / 2)];
+		const randomHand = () => hands[Math.floor(Math.random() * hands.length)]
 
-		const minDelayUntilNewHand = 500;
+		this._currentHand = randomHand();
+
+		this.minDelayUntilNewHand = 500;
+		this.maxDelayUntilNewHand = 2000;
+
 		let timeOfChosenHand = 0;
 
 		const lId = radio.listen((msg) => {
@@ -14,9 +17,9 @@ class AiPlayer {
 				case "game:start":
 					break;
 				case "game:heartbeat":
-					if (timeSinceNewHand > minDelayUntilNewHand && Math.random() < 0.01) {
+					if ((timeSinceNewHand > this.minDelayUntilNewHand && Math.random() < 0.02) || timeSinceNewHand >= this.maxDelayUntilNewHand) {
 						timeOfChosenHand = msg.time;
-						this._currentHand = this._possibleHands[Math.floor(Math.random() * this._possibleHands.length)];
+						this._currentHand = randomHand();
 					}
 					break;
 				case "game:ending":
