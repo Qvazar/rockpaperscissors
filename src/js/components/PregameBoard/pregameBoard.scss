@@ -57,6 +57,7 @@
 	border: 2px dashed transparent;
 	will-change: border;
 	transition: border 500ms;
+	border-radius: 50%;
 
 	&:hover {
 	  border: 2px #666 dashed;
