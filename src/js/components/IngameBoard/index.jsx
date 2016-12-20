@@ -37,7 +37,7 @@ class IngameBoard extends React.Component {
 			<div className="ingameBoard">
 				<h2>Choose your hand!</h2>
 				{players.map((p, i) => (
-					<div key={i}>
+					<div key={i} className="ingameBoard-part">
 						{(i > 0) && <Countdown value={this.state.timeLeft} percentage={percentageOfTime} /> }
 						<div className={`playerBoard ${p.isAi ? "aiPlayer" : "humanPlayer"}`}>
 							{hands.map(h => (

@@ -1,24 +1,36 @@
 .postgameBoard {
+  position: relative;
   width: 100%;
-  position:relative;
-  text-align:center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
-  h2 {
-	font-size:3em;
-  }
+  .scoreboard {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 
-  .player {
-	display:inline-block;
-	transform:scale(0.7);
-	opacity: 0.7;
+	.players {
+	  display: flex;
+	  flex-direction: row;
+	  justify-content: center;
+	  align-items: center;
 
-	&.winner {
-	  transform:scale(1.4);
+	  .player {
+		width: 30vmin;
+		transform: scale(0.6);
+		opacity: 0.7;
+
+		&.winner {
+		  transform: scale(1);
+		  opacity: 1;
+		}
+	  }
 	}
   }
 
   .resetButton {
-	margin:2em auto;
-	font-size:2em;
+	font-size: 2em;
   }
 }

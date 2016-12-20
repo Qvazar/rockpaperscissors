@@ -31,7 +31,7 @@ class PregameBoard extends React.Component {
 		return (
 			<div className="pregameBoard">
 				<form onSubmit={this.onSubmit}>
-					<h1>You are?</h1>
+					<h2>You are?</h2>
 					<label>
 						<input type="radio" name="playerType" value="human" checked={humanSelected} onChange={this.onPlayerTypeChange} />
 						<span>Human</span>

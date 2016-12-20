@@ -14,11 +14,13 @@ const PostgameBoard = ({radio, onReset}) => {
 		<div className="postgameBoard">
 			<div className="scoreboard">
 				<h2>{wasADraw ? "It was a draw!" : `You ${winnerNo === 1 ? "won" : "lose"}!`}</h2>
-				{players.map(p => (
-					<div className={`player ${p === winner ? "winner" : ""}`}>
-						<Hand hand={p.hand}/>
-					</div>
-				))}
+				<div className="players">
+					{players.map((p, i) => (
+						<div key={i} className={`player ${p === winner ? "winner" : ""}`}>
+							<Hand hand={p.hand}/>
+						</div>
+					))}
+				</div>
 			</div>
 			<button className="resetButton" type="button" onClick={onReset}>Play again</button>
 		</div>

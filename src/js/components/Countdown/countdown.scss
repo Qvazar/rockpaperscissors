@@ -1,10 +1,14 @@
 .countdown {
-  width: 10em;
-  margin:2em auto;
+  width: 70vw;
+  height: 3vmin;
+  display:flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .countdown .countdown-gfx {
-  height: 1em;
+  height: 2vmin;
   background-color: white;
+  margin:0 auto;
 }
 
